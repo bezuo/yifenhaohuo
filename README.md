@@ -22,4 +22,4 @@
 用于下拉刷新的数据
 
 
-[点击一分好货](http://m.yifenhaohuo.com)
+[点击一分好货](http://m.yifenhaohuo.com)(尚未上线)
