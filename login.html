@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=0"> <!-- 规定视口区域大小为1:1且不允许缩放 -->
+<meta name="apple-mobile-web-app-capable" content="yes"> <!-- IOS中Safari允许全屏浏览 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- IOS中Safari顶端状态条样式 -->
+<meta content="telephone=no, address=no" name="format-detection"> <!-- 忽略IOS操作系统将五位或以上位数的数字识别成电话号码 -->
+<meta name="author" content="BeZuo">
+<title>一分好货</title>
+<link rel="Shortcut Icon" href="images/favicon.ico" />
+<!-- 用于浏览器默认样式重置 start -->
+<link type="text/css" rel="stylesheet" href="style/base.min.css" />
+<!-- 用于浏览器默认样式重置 end -->
+
+<!-- 页面模块样式 start -->
+<link type="text/css" rel="stylesheet" href="style/layout.min.css" />
+<!-- 页面模块样式 end -->
+<style type="text/css">
+:-moz-placeholder {
+    color: rgba(255,255,255, .8);
+}
+::-moz-placeholder {
+    color: rgba(255,255,255, .8);
+}
+input:-ms-input-placeholder {
+    color: rgba(255,255,255, .8);
+}
+input::-webkit-input-placeholder {
+    color: rgba(255,255,255, .8);
+}	
+</style>
+</head>
+
+<body>
+<section class="loginBox">
+	<a href="javascript:void(0);" class="login-close"></a>
+	<div class="loginContent">
+		<h1 class="login-logo"><img src="images/login-logo.png" alt="一分好货" /></h1>
+		<ul class="login-main">
+			<li>
+				<span><input type="tel" class="user-iphone" placeholder="输入手机号码" /></span>
+			</li>
+			<li class="pwd-box">
+				<a href="javascript:void(0);" class="dynamic-pwd" id="btn-info">获取动态密码</a>
+				<span><input type="tel" class="iphone-pwd" placeholder="填写动态密码登录" /></span>
+			</li>
+			<li>
+				<!-- <button class="btn-login">登录</button> -->
+				<a href="javascript:void(0);" class="alogin">登录</a>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/base.min.js"></script>
+<script type="text/javascript">
+
+	// 点击获取动态密码;
+	function obtainInfo(){
+	    
+	    var time = 60;
+		$("#btn-info").html("<i>60</i>秒后重新发送").css("font-size", "1.3rem");
+
+		// 移除按钮的点击事件,避免重复点击;
+		document.getElementById('btn-info').removeEventListener("click", obtainInfo, false);
+
+		// 倒计时函数;
+		function timedCount() {
+			$(".dynamic-pwd i").text(time);
+			if(time == 0) {
+				$(".dynamic-pwd").html("获取动态密码").css("font-size", "1.4rem");
+				// 重新绑定点击事件;
+				document.getElementById('btn-info').addEventListener("click", obtainInfo, false);
+				// 清除定时器;
+				clearTimeout(t);
+			} else {
+				t = setTimeout(timedCount, 1000);
+				time--;
+			}
+		}
+	    timedCount();
+    }
+
+    // 为btn-info按钮绑定点击事件;
+    document.getElementById('btn-info').addEventListener("click", obtainInfo, false);
+
+    $(".iphone-pwd").on("input propertychange", function(){
+    	// console.log($(this).val())
+    	if($(this).val().length >= 6) {
+    		$("<button class='btn-login'>登录</button>").insertBefore(".alogin");
+    		$(".alogin").remove();
+    	} else {
+    		$("<a href='javascript:void(0);' class='alogin'>登录</a>").insertBefore(".btn-login");
+    		$(".btn-login").remove();
+    	}
+    });
+</script>
+</body>
+</html>

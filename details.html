@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> <!-- 规定视口区域大小为1:1且不允许缩放 -->
+<meta name="apple-mobile-web-app-capable" content="yes"> <!-- IOS中Safari允许全屏浏览 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- IOS中Safari顶端状态条样式 -->
+<meta content="telephone=no, address=no" name="format-detection"> <!-- 忽略IOS操作系统将五位或以上位数的数字识别成电话号码 -->
+<meta name="author" content="BeZuo">
+<title>商品详情</title>
+<link rel="Shortcut Icon" href="images/favicon.ico" />
+<!-- 用于浏览器默认样式重置 start -->
+<link type="text/css" rel="stylesheet" href="style/base.min.css" />
+<!-- / 用于浏览器默认样式重置 end -->
+
+<!-- 页面模块样式 start -->
+<link type="text/css" rel="stylesheet" href="style/layout.min.css" />
+<!-- / 页面模块样式 end -->
+
+<!-- 页面下拉加载动效 start -->
+<link rel="stylesheet" type="text/css" href="style/gmu.min.css" />
+<!-- / 页面下拉加载动效 end -->
+</head>
+
+<body>
+<section class="bg01">	
+	<!-- header start -->
+	<header class="top-fixed header">
+		<a href="javascript: history.back();" class="fn-left page-back"></a>
+		<h1 class="top-h1">商品详情</h1>
+	</header>
+	<!-- / header end -->
+
+	<!-- article start -->
+	<article class="pad-top44 pad-btm50 ui-refresh">
+		<!-- product picture start -->
+		<section class="productImg">
+			<div>
+				<img src="http://gd3.alicdn.com/bao/uploaded/i3/TB1vqAkLXXXXXXAXXXXXXXXXXXX_!!0-item_pic.jpg_600x600.jpg" alt=" 春装新款女装韩版雪纺连衣裙v领两件套女长袖套装裙胖妹妹短裙子" />
+			</div>
+		    <div>
+		    	<img src="http://gd4.alicdn.com/imgextra/i4/1975949738/TB2sQCtjXXXXXaBXpXXXXXXXXXX_!!1975949738.jpg_600x600.jpg" alt=" 春装新款女装韩版雪纺连衣裙v领两件套女长袖套装裙胖妹妹短裙子" />
+		    </div>
+		    <div>
+		    	<img src="http://gd2.alicdn.com/imgextra/i2/1975949738/TB26zGojXXXXXcXXpXXXXXXXXXX_!!1975949738.jpg_600x600.jpg" alt=" 春装新款女装韩版雪纺连衣裙v领两件套女长袖套装裙胖妹妹短裙子" />
+		    </div>
+		    <div>
+		    	<img src="http://gd3.alicdn.com/imgextra/i3/1975949738/TB2OUCMjXXXXXbjXXXXXXXXXXXX_!!1975949738.jpg_600x600.jpg" alt=" 春装新款女装韩版雪纺连衣裙v领两件套女长袖套装裙胖妹妹短裙子" />
+		    </div>
+		</section>
+		<!-- / product picture end -->
+		
+		<!-- details start -->
+		<section class="detailsBox">
+			<h2>国行联保Canon/佳能微单相机EOS M2 18-55STM镜头eosm2单电数码</h2>
+			<p>
+				<em class="price03 text-color">¥0.01</em><i class="postage text-color1">快递：10元</i>
+			</p>			
+		</section>
+		<!-- / details end -->
+		
+		<p class="otherAddress">新疆 西藏 青海 云南 贵州 海南 宁夏 甘肃 内蒙古 港澳台 海外地区商家不支持发货，请勿下单。我们会尽快争取让这些地区的朋友参与到一分好货的购买，谢谢支持：）</p>
+		
+		<div class="action-container" id="sku">
+			<span>颜色及款式选择</span>
+		</div>
+
+		<!-- details content start -->
+		<section class="detailsContent">
+			<h3 class="details-title">商品描述</h3>
+			<p class="details-text">图片为实物拍摄，但由于拍摄灯光，以及每台显示器呈色不同导致轻微色差，属正常现象</p>
+
+			<!-- details img start -->
+			<div class="details-img">
+				<img data-url="images/details-01.jpg" class="imglazyload" />
+				<img data-url="images/details-02.jpg" class="imglazyload" />
+				<img data-url="images/details-03.jpg" class="imglazyload" />
+			</div>
+			<!-- / details-img end -->
+		</section>
+		<!-- / details content end -->
+	</article>
+	<!-- / article end -->
+
+	<!-- footer start -->
+	<footer class="btm-fixed details-foot">
+		<a href="javascript:void(0);" class="details-buy">立即购买</a>
+	</footer>
+	<!-- / footer end -->
+</section>
+
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/base.min.js"></script>
+<script type="text/javascript" src="js/gmu.min.js"></script>
+<script type="text/javascript" src="js/skuSelect.min.js"></script>
+<script type="text/javascript">
+	// 商品图轮换
+	$('.productImg').slider( { imgZoom: true });
+
+	// 图片延迟加载;
+	$(".imglazyload").lazyImgLoad({
+		backgroundImg: "http://m.baokuandaren.com/baokuandaren/static/images/img-placeholder.png",
+		distance: "50"
+	});	
+
+	// 点击选择sku;
+	$("#sku, .details-buy").on("click", function(){ skuSelect()});
+	
+	// 选择收货地址
+	function addressSelect() {
+
+		$(".skuBox").addClass("anmite-hide");
+
+		var strDom = "<section class='addressBox anmite-show' id='addressList'>" +
+						"<div class='address' style='padding-bottom:1.5rem;'>" +
+							"<h3>选择收货地址</h3>" +
+							"<div class='addressList'>" +
+								"<div class='addressItem'>" +
+									"<span class='confirm icons-confirm'></span>" +
+									"<div class='order-contact'>" +
+										"<em class='fn-right phone'>18616574681</em>" +
+										"<span class='receiver'>收货人：唐先生</span>" +
+									"</div>" +
+									"<p class='order-address'>收货人地址：广东省深圳市南山区科技园北区宝深路科陆电子大厦A座13楼必做网络科技有限公司</p>" +
+								"</div>" +
+
+								"<div class='addressItem'>" +
+									"<span class='confirm icons-confirm'></span>" +
+									"<div class='order-contact'>" +
+										"<em class='fn-right phone'>18616574681</em>" +
+										"<span class='receiver'>收货人：唐先生</span>" +
+									"</div>" +
+									"<p class='order-address'>收货人地址：广东省深圳市南山区科技园北区宝深路科陆电子大厦A座13楼必做网络科技有限公司</p>" +
+								"</div>" +
+							"</div>" +
+							"<div class='addAddress'><span class='fn-left icons-add01'></span>新增收货地址</div>" +
+						"</div>" +
+					"</section>";
+
+		$("#addressList").length != 0 ? $("#addressList").removeClass("anmite-hide") : $("body").append(strDom);
+		
+		// 新增收货地址绑定事件事件;
+		$(".addAddress").get(0).addEventListener("click", cityAjax ,false);
+
+		// 选择收货地址绑定事件方法;
+		$(".addressItem").each(function(){
+			$(this).get(0).addEventListener("click", Selected, false);
+		});
+	}
+
+	// sku选择点击下一步
+	function skuNext() {
+
+		var skuItem = $("#sku-control").find("dd");
+		// sku类别全选中
+		skuItem.length == $(".checked").length ? addressSelect() : false;
+	}
+
+	function Selected() {
+		location.href = "order/orderPayment.html";
+	}
+
+	function addNext() {
+		location.href = "order/orderPayment.html";
+	}
+</script>
+</body>
+</html>
